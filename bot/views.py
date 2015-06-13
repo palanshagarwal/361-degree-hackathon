@@ -64,7 +64,7 @@ class Chess():
     aiPosYtt = 0
     nextMoveLocationY = -1
     nextMoveLocationX = -1
-    maxDepth = 3
+    maxDepth = 2
     hPosX = 0
     hPosY = 0
     hPosXtt = 0
