@@ -81,6 +81,12 @@ class Chess():
         self.hPosX=int(move[0])-1
         self.hPosY=int(move[1])-1
 
+    def setAI(self,m):
+        move = m.split('|')
+        self.game.placeMove(int(move[0])-1,int(move[1])-1,2)
+        self.aiPosX=int(move[0])-1
+        self.aiPosY=int(move[1])-1
+
     def calculateScore(self,aiScore):
         return 5**aiScore
 
@@ -180,6 +186,7 @@ def main(n,pehl):
     global ai
     b = Board(n,pehl)
     ai = Chess(b)
+
     # ai.playAgainstAIConsole()
 
 
@@ -191,12 +198,19 @@ def start(request):
         pehl=False
     n = request.GET.get('g', '')
     main(int(n),pehl)
+    if(not pehl):
+        ai.letOpponentMove('1|1')
+        ai.setAI(n + '|' + n)
+    else:
+        ai.setAI('1|1')
+        ai.letOpponentMove(n + '|' + n)
     data={"ok":True}
     return JsonResponse(data)
 
 
 def play(request):
     move = request.GET.get('m', '')
+
     ai.letOpponentMove(move)
     P=ai.playAgainstAIConsole()
     data={"m":P}
