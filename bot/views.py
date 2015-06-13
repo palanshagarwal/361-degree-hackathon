@@ -171,7 +171,8 @@ class Chess():
         self.game.placeMove(temp[0],temp[1], 1)
         self.aiPosX = temp[0]
         self.aiPosY=temp[1]
-        return str(temp[0]) +'|' + str(temp[1])
+
+        return str(temp[0]+1) +'|' + str(temp[1]+1)
             # print self.game.displayBoard()
             
 def main(n,pehl):
