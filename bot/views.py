@@ -64,7 +64,7 @@ class Chess():
     aiPosYtt = 0
     nextMoveLocationY = -1
     nextMoveLocationX = -1
-    maxDepth = 2
+    maxDepth = 3
     hPosX = 0
     hPosY = 0
     hPosXtt = 0
@@ -116,6 +116,9 @@ class Chess():
             else:
                 return -10**9
        
+        if int(depth) == 2:
+          return max(self.evaluateBoard(self.game),self.minimax(depth+1, 2, alpha, beta))
+
         if int(depth) == int(self.maxDepth):
           return self.evaluateBoard(self.game)
        
