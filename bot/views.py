@@ -117,7 +117,7 @@ class Chess():
                 return -10**9
        
         if int(depth) == 2:
-          return max(self.evaluateBoard(self.game),self.minimax(depth+1, 2, alpha, beta))
+          currentscor=self.evaluateBoard(self.game)
 
         if int(depth) == int(self.maxDepth):
           return self.evaluateBoard(self.game)
@@ -138,7 +138,7 @@ class Chess():
 
                 if int(turn)==1:
                     self.game.placeMove(i,j,1);
-                    currentScore = self.minimax(depth+1, 2, alpha, beta)
+                    currentScore = max(currentscor,self.minimax(depth+1, 2, alpha, beta))
                    
                     if depth==0:
                         print(currentScore, maxScore)
