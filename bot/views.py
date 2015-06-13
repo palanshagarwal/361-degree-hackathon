@@ -138,8 +138,10 @@ class Chess():
 
                 if int(turn)==1:
                     self.game.placeMove(i,j,1);
-                    currentScore = max(currentscor,self.minimax(depth+1, 2, alpha, beta))
-                   
+                    if depth==2:
+                        currentScore = max(currentscor,self.minimax(depth+1, 2, alpha, beta))
+                    else:
+                        currentScore = self.minimax(depth+1, 2, alpha, beta)
                     if depth==0:
                         print(currentScore, maxScore)
                         if currentScore >= maxScore:
