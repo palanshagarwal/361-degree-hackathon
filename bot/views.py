@@ -64,7 +64,7 @@ class Chess():
     aiPosYtt = 0
     nextMoveLocationY = -1
     nextMoveLocationX = -1
-    maxDepth = 9
+    maxDepth = 3
     hPosX = 0
     hPosY = 0
     hPosXtt = 0
@@ -125,8 +125,9 @@ class Chess():
         maxScore=-10**9
         minScore = 10**9
 
-        for i in xrange(max(0,self.aiPosXtt-1),min(self.aiPosXtt+2,self.size-1)):
-            for j in xrange(max(0,self.aiPosYtt-1),min(self.aiPosYtt+2,self.size-1)):
+        for j in xrange(max(0,self.aiPosYtt-1),min(self.aiPosYtt+2,self.size-1)):
+            for i in xrange(max(0,self.aiPosXtt-1),min(self.aiPosXtt+2,self.size-1)):
+            
                 currentScore = 0
                 if i==self.hPosX and j==self.hPosY:
                     self.nextMoveLocationY = j
