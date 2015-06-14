@@ -125,8 +125,8 @@ class Chess():
         maxScore=-10**9
         minScore = 10**9
 
-        for j in xrange(max(0,self.aiPosYtt-1),min(self.aiPosYtt+2,self.size)):
-            for i in xrange(max(0,self.aiPosXtt-1),min(self.aiPosXtt+2,self.size)):
+        for i in xrange(max(0,self.aiPosXtt-1),min(self.aiPosXtt+2,self.size)):
+            for j in xrange(max(0,self.aiPosYtt-1),min(self.aiPosYtt+2,self.size)):
             
                 currentScore = 0
                 if i==self.hPosX and j==self.hPosY:
