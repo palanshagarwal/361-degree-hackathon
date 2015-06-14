@@ -94,8 +94,8 @@ class Chess():
         score=0
         blanks = 0
       
-        for i in xrange(self.aiPosXtt-1,self.aiPosXtt+2):
-            for j in xrange(self.aiPosYtt-1,self.aiPosYtt+2):
+        for i in xrange(max(0,self.aiPosXtt-1),min(self.aiPosXtt+2,self.size-1)):
+            for j in xrange(max(0,self.aiPosYtt-1),min(self.aiPosYtt+2,self.size-1)):
                 if i==self.hPosXtt and j==self.hPosYtt:
                     score = (-10**5)
                     i = 25
@@ -125,8 +125,8 @@ class Chess():
         maxScore=-10**9
         minScore = 10**9
 
-        for i in xrange(self.aiPosX-1,self.aiPosX+2):
-            for j in xrange(self.aiPosY-1,self.aiPosY+2):
+        for i in xrange(max(0,self.aiPosXtt-1),min(self.aiPosXtt+2,self.size-1)):
+            for j in xrange(max(0,self.aiPosYtt-1),min(self.aiPosYtt+2,self.size-1)):
                 currentScore = 0
                 if i==self.hPosX and j==self.hPosY:
                     self.nextMoveLocationY = j
